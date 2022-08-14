@@ -14,7 +14,6 @@ Install python dependencies
 ```
 virtualenv venv
 pip install -r requirements.txt
-python relay.py
 ```
 
 Setup env vars
