@@ -19,6 +19,7 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         json_message = {
             "content": message.content,
+            "id": message.id,
             "author": {
                 "id": message.author.id,
                 "name": message.author.name
@@ -26,6 +27,10 @@ class MyClient(discord.Client):
             "channel": {
                 "id": message.channel.id,
                 "name": message.channel.name,
+            },
+            "guild": {
+                "id": message.guild.id,
+                "name": message.guild.name
             }
         }
         json_message_dump = json.dumps(json_message)
@@ -41,7 +46,6 @@ class MyClient(discord.Client):
         )
         eventid = response['Entries'][0]['EventId']
         print(f'Relayed message to {BUS_ARN}. Eventid {eventid}')
-        response
 
 
 def main():
