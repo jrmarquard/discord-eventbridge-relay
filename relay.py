@@ -19,17 +19,17 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         json_message = {
             "content": message.content,
-            "id": message.id,
+            "id": str(message.id),
             "author": {
-                "id": message.author.id,
+                "id": str(message.author.id),
                 "name": message.author.name
             },
             "channel": {
-                "id": message.channel.id,
+                "id": str(message.channel.id),
                 "name": message.channel.name,
             },
             "guild": {
-                "id": message.guild.id,
+                "id": str(message.guild.id),
                 "name": message.guild.name
             }
         }
